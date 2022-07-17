@@ -41,4 +41,15 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class,'sender_id');
+    }
+
+    public function channels()
+    {
+        return $this->belongsToMany(Channel::class,'user_channels');
+    }
 }
