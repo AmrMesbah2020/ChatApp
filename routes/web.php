@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Channel;
+use App\Models\Message;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
