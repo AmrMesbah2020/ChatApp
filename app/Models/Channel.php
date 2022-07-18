@@ -23,4 +23,14 @@ class Channel extends Model
     {
         return $this->belongsToMany(User::class,'user_channels');
     }
+
+    public function lastMessage()
+    {
+        return $this->hasOne(Message::class)->latestOfMany();
+    }
+
+    public function unSeenMessagesCount()
+    {
+        return $this->messages()->where('is_seen' , 0);
+    }
 }

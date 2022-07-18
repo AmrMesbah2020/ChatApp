@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChannelController;
 use App\Models\Channel;
 use App\Models\Message;
 use App\Models\User;
@@ -25,3 +26,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/channels',[ChannelController::class,'index'])->middleware(['auth']);
+Route::get('/channels/{channel}',[ChannelController::class,'show'])->middleware(['auth']);
+
