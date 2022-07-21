@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChannelController;
+use App\Http\Controllers\MessageeController;
 use App\Models\Channel;
 use App\Models\Message;
 use App\Models\User;
@@ -30,3 +31,4 @@ require __DIR__.'/auth.php';
 Route::get('/channels',[ChannelController::class,'index'])->middleware(['auth']);
 Route::get('/channels/{channel}',[ChannelController::class,'show'])->middleware(['auth']);
 
+Route::get('/messages',[MessageeController::class , 'message'])->middleware(['auth']);

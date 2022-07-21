@@ -21,6 +21,7 @@ class ChannelController extends Controller
   {
     $channel = $channelService->fetchChannel($channelId);
     $channel->load(['messages']);
+    $channel->messages->update(['is_seen' => 1]);
     return new ChannelResource($channel);
   }
 
